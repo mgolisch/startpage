@@ -1,5 +1,5 @@
-client/**/*.js
-client/**/*.js.map
+client/app/*.js
+client/app/*.js.map
 client/node_modules
 node_modules
 typings
