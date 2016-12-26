@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Links</h2>
+        <button (click)="toggleEdit()" class="btn btn-primary btn-xs">Toggle Edit</button>
+    </div>
+    <!-- col -->
+</div>
+<!-- row -->
+<div ngFor="let cat of categories">
+    <h2 *ngIf="cat">{{cat.name}}</h2>
+    <div [ngClass]="{row:index % 2 == 1}">
+        <div class="col-sm-4">
+            <ul *ngIf="cat">
+                <li *ngFor="let link of filterLinks(cat)">
+                    <img *ngIf="link.icon" width="20" height="20" [src]="link.icon" class="img-circle" />
+                    <a href="#" (click)="openLink(link.url)">{{link.title}}</a>
+                    <a *ngIf="editing" (click)="editLink(link)">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                    </a>
+                    <a *ngIf="editing" (click)="deleteLink(link._id)">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- col -->
+    </div>
+    <!-- row -->
+</div>
+<!-- category -->
