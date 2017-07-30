@@ -16,7 +16,7 @@ services:
     volumes:
       - .:/usr/src/app
     ## set your startup file here
-    command: node --debug=0.0.0.0:5858 server.js
+    command: node --inspect=0.0.0.0:5858 server.js
   
   db:
     image: mongo
